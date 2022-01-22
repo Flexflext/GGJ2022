@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class SlowTrap : PlayerTrap
 {
@@ -11,7 +12,7 @@ public class SlowTrap : PlayerTrap
     private SlowTrap counterPart;
 
     [SerializeField]
-    private GameObject activeEffect;
+    private VisualEffect activeEffect;
 
     PlayerController playerToSlow;
 
@@ -50,14 +51,14 @@ public class SlowTrap : PlayerTrap
             return;
 
         isActivated = true;
-        activeEffect.SetActive(true);
+        activeEffect.Play();
         triggerCollider.enabled = true;
     }
 
     public void DeactivateTrap()
     {
         isActivated = false;
-        activeEffect.SetActive(false);
+        activeEffect.Stop();
         triggerCollider.enabled = false;
     }
 

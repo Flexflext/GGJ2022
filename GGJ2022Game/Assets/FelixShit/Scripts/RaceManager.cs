@@ -98,4 +98,5 @@ public class RaceManager : MonoBehaviour
         timerText.text = "";
     }
 
+    public Transform LeadingPlayer() => firstPlayer;
 }
