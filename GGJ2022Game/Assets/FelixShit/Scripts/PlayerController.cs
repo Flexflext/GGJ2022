@@ -60,6 +60,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         maxMoveSpeed = moveSpeed;
         maxJumpSpeed = jumpSpeed;
+        currentJumpCoolDown = doubleJumpCooldown;
+        currentTrapCoolDown = trapActivationCooldown;
     }
 
     private void Update()
@@ -105,12 +107,17 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
         rb.AddForce(Vector3.up * jumpSpeed);
         jump.Play();
+        walk.Stop();
     }
 
     private void GetInput()
     {
+        if (Time.timeScale <= 0)
+        {
+            return;
+        }
+
         currentMove = Vector3.zero;
-        walk.Stop();
 
         if (Input.GetKeyDown(jumpKey))
         {
@@ -125,9 +132,6 @@ public class PlayerController : MonoBehaviour
                 FlipChar();
                 isLookingRight = true;
             }
-
-            walk.Play();
-
         }
 
         if (Input.GetKey(moveLeftKey))
@@ -138,8 +142,6 @@ public class PlayerController : MonoBehaviour
                 FlipChar();
                 isLookingRight = false;
             }
-
-            walk.Play();
         }
 
         if (Input.GetKeyDown(trapKey))
@@ -171,6 +173,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!isGrounded)
             {
+                walk.Play();
                 fall.Play();
             }
 
@@ -218,6 +221,11 @@ public class PlayerController : MonoBehaviour
         GameManager.Instance.SetPlayerScore(player);
     }
 
+    private void Win()
+    {
+        GameManager.Instance.SetPlayerScore(player, true);
+    }
+
     public void RecieveSlow(float _multiplier)
     {
         moveSpeed = maxMoveSpeed * _multiplier;
@@ -230,6 +238,10 @@ public class PlayerController : MonoBehaviour
         {
             canDie = false;
             Die();
+        }
+        else if (other.gameObject.layer == 9)
+        {
+            Win();
         }
     }
 

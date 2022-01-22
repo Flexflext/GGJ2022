@@ -31,19 +31,36 @@ public class GameManager : MonoBehaviour
         _second = secondPlayerWon.ToString();
     }
 
-    public void SetPlayerScore(EPlayer _playertype)
+    public void SetPlayerScore(EPlayer _playertype, bool _win = false)
     {
         Time.timeScale = 0;
 
-        switch (_playertype)
+        if (_win)
         {
-            case EPlayer.First:
-                secondPlayerWon++;
-                break;
-            case EPlayer.Second:
-                firstPlayerWon++;
-                break;
+            switch (_playertype)
+            {
+                case EPlayer.First:
+                    firstPlayerWon++;
+                    break;
+                case EPlayer.Second:
+                    secondPlayerWon++;
+                    break;
+            }
         }
+        else
+        {
+            switch (_playertype)
+            {
+                case EPlayer.First:
+                    secondPlayerWon++;
+                    break;
+                case EPlayer.Second:
+                    firstPlayerWon++;
+                    break;
+            }
+        }
+
+        
         RaceManager.Instance.SetPlayerScoreText(firstPlayerWon, secondPlayerWon);
 
         if (firstPlayerWon == 2 || secondPlayerWon == 2)
@@ -68,6 +85,8 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator LoadSceneAfterDelay(int _scenetoload)
     {
+        yield return new WaitForSecondsRealtime(0.1f);
+
         while (!Input.GetKey(KeyCode.Space))
         {
             yield return null;
