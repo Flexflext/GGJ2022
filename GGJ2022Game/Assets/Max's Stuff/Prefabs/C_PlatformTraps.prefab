@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   counterPart: {fileID: 2980612980711837013}
-  movementSpeed: 2
+  movementSpeed: 10
   moveOffset: 3
   debugBool: 0
 --- !u!1 &2980612980711837012
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   counterPart: {fileID: 2980612980591943578}
-  movementSpeed: 2
+  movementSpeed: 10
   moveOffset: 3
   debugBool: 0
 --- !u!1 &2980612980754353381
