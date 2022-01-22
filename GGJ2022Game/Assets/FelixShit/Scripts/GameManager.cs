@@ -33,8 +33,7 @@ public class GameManager : MonoBehaviour
 
     public void SetPlayerScore(EPlayer _playertype, bool _win = false)
     {
-        Time.timeScale = 0;
-
+        
         if (_win)
         {
             switch (_playertype)
@@ -66,11 +65,12 @@ public class GameManager : MonoBehaviour
         if (firstPlayerWon == 2 || secondPlayerWon == 2)
         {
             //End Game
-            RaceManager.Instance.SetTexts(firstPlayerWon == 2 ? "Player 1 Won" : "Player 2 Won");
+            
 
             firstPlayerWon = 0;
             secondPlayerWon = 0;
 
+            RaceManager.Instance.SetTexts(firstPlayerWon == 2 ? "Player 1 Won" : "Player 2 Won");
 
             StartCoroutine(LoadSceneAfterDelay(SceneManager.GetActiveScene().buildIndex));
         }
@@ -85,7 +85,28 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator LoadSceneAfterDelay(int _scenetoload)
     {
-        yield return new WaitForSecondsRealtime(0.1f);
+        float cur;
+
+        while (Time.timeScale > 0.5f)
+        {
+            cur = Time.timeScale - Time.unscaledDeltaTime * 0.5f;
+
+
+            if (cur <= 0)
+            {
+                Time.timeScale = 0;
+            }
+            else
+            {
+                Time.timeScale = cur;
+            }
+
+            yield return null;
+        }
+
+        
+
+        Time.timeScale = 0;
 
         while (!Input.GetKey(KeyCode.Space))
         {
