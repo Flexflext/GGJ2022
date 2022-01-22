@@ -1,9 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
+
+public enum EPlayer
+{
+    First,
+    Second
+}
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private EPlayer player;
+
     [Header("MoveParam")]
     [SerializeField] private float moveSpeed;
     private float maxMoveSpeed;
@@ -30,6 +39,11 @@ public class PlayerController : MonoBehaviour
     private float currentTrapCoolDown;
     private bool canChangeTrap = true;
 
+    [Header("VFX")]
+    [SerializeField] private VisualEffect jump;
+    [SerializeField] private VisualEffect fall;
+    [SerializeField] private VisualEffect walk;
+
 
     [Header("Keys")]
     [SerializeField] private KeyCode moveRightKey;
@@ -38,6 +52,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private KeyCode trapKey;
 
     private Rigidbody rb;
+
+    private bool canDie = true;
 
     private void Awake()
     {
@@ -88,12 +104,13 @@ public class PlayerController : MonoBehaviour
     {
         rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
         rb.AddForce(Vector3.up * jumpSpeed);
+        jump.Play();
     }
 
     private void GetInput()
     {
         currentMove = Vector3.zero;
-
+        walk.Stop();
 
         if (Input.GetKeyDown(jumpKey))
         {
@@ -108,6 +125,9 @@ public class PlayerController : MonoBehaviour
                 FlipChar();
                 isLookingRight = true;
             }
+
+            walk.Play();
+
         }
 
         if (Input.GetKey(moveLeftKey))
@@ -118,6 +138,8 @@ public class PlayerController : MonoBehaviour
                 FlipChar();
                 isLookingRight = false;
             }
+
+            walk.Play();
         }
 
         if (Input.GetKeyDown(trapKey))
@@ -127,6 +149,7 @@ public class PlayerController : MonoBehaviour
                 ChangeNextTrap();
                 canChangeTrap = false;
             }
+
             
         }
 
@@ -146,6 +169,11 @@ public class PlayerController : MonoBehaviour
     {
         if (Physics.CheckSphere(groundCheckPos.position, groundCheckRadius, groundLayer))
         {
+            if (!isGrounded)
+            {
+                fall.Play();
+            }
+
             return true;
         }
         else
@@ -187,6 +215,7 @@ public class PlayerController : MonoBehaviour
     private void Die()
     {
         //Tell Race Manager
+        GameManager.Instance.SetPlayerScore(player);
     }
 
     public void RecieveSlow(float _multiplier)
@@ -197,8 +226,9 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 8)
+        if (other.gameObject.layer == 8 && canDie)
         {
+            canDie = false;
             Die();
         }
     }
