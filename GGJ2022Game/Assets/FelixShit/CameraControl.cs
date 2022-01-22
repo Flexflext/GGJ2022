@@ -19,7 +19,7 @@ public class CameraControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        LerpCameras();   
+        LerpCameras();
     }
 
     private void LerpCameras()
@@ -45,8 +45,12 @@ public class CameraControl : MonoBehaviour
         else
         {
             this.transform.position = new Vector3(Mathf.Lerp(this.transform.position.x, frontPlayer.position.x, 1* Time.fixedDeltaTime), this.transform.position.y, this.transform.position.z);
-        }
+        }    
+    }
 
-        
+    public void SetFirstAndLastPlayer(Transform _front, Transform _back)
+    {
+        frontPlayer = _front;
+        backPlayer = _back;
     }
 }

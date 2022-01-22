@@ -59,6 +59,8 @@ public class PlayerController : MonoBehaviour
 
     private void ChangeNextTrap()
     {
+        TrapContainer.Instance.SetNextTrapAndActivate(this.transform.position.x);
+
         canChangeTrap = false;
         currentTrapCoolDown = 0;
     }
@@ -178,10 +180,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void Die()
+    {
+        //Tell Race Manager
+    }
+
     public void RecieveSlow(float _multiplier)
     {
         moveSpeed *= _multiplier;
         jumpSpeed *= _multiplier;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 8)
+        {
+            Die();
+        }
     }
 
     private void OnDrawGizmos()
