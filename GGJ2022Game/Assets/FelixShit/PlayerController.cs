@@ -6,11 +6,13 @@ public class PlayerController : MonoBehaviour
 {
     [Header("MoveParam")]
     [SerializeField] private float moveSpeed;
+    private float maxMoveSpeed;
     private Vector3 currentMove;
     private bool isLookingRight = true;
 
     [Header("JumpParam")]
     [SerializeField] private float jumpSpeed;
+    private float maxJumpSpeed;
     private bool canDoubleJump = true;
     private bool isGrounded;
 
@@ -40,6 +42,8 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        maxMoveSpeed = moveSpeed;
+        maxJumpSpeed = jumpSpeed;
     }
 
     private void Update()
@@ -187,8 +191,8 @@ public class PlayerController : MonoBehaviour
 
     public void RecieveSlow(float _multiplier)
     {
-        moveSpeed *= _multiplier;
-        jumpSpeed *= _multiplier;
+        moveSpeed = maxMoveSpeed * _multiplier;
+        jumpSpeed = maxJumpSpeed * _multiplier;
     }
 
     private void OnTriggerEnter(Collider other)
