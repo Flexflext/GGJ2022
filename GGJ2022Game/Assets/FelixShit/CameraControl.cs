@@ -4,23 +4,29 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
+    [SerializeField] private Vector2 xLerpZone;
+
     [SerializeField] private Vector2 minMaxZPos;
     [SerializeField] private float maxXDistance;
 
     [SerializeField] private Transform frontPlayer;
     [SerializeField] private Transform backPlayer;
 
+    private float currentSmoothTime;
+    private float currentDistance;
+    private float distancePercent;
 
-    private void LateUpdate()
+
+    private void FixedUpdate()
     {
-        LerpCameras();
+        LerpCameras();   
     }
 
     private void LerpCameras()
     {
-        float currentDistance = Mathf.Abs(frontPlayer.position.x - backPlayer.position.x);
+        currentDistance = Mathf.Abs(frontPlayer.position.x - backPlayer.position.x);
 
-        float distancePercent = currentDistance / maxXDistance;
+        distancePercent = currentDistance / maxXDistance;
 
         if (distancePercent <= 1)
         {
@@ -29,7 +35,18 @@ public class CameraControl : MonoBehaviour
         else
         {
             this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, minMaxZPos.y);
-
         }
+
+
+        if (frontPlayer.position.x <= this.transform.position.x + xLerpZone.x || frontPlayer.position.x >= this.transform.position.x + xLerpZone.y)
+        {
+            this.transform.position = new Vector3(Mathf.SmoothDamp(this.transform.position.x, frontPlayer.position.x,ref currentSmoothTime, 1f), this.transform.position.y, this.transform.position.z);
+        }
+        else
+        {
+            this.transform.position = new Vector3(Mathf.Lerp(this.transform.position.x, frontPlayer.position.x, 1* Time.fixedDeltaTime), this.transform.position.y, this.transform.position.z);
+        }
+
+        
     }
 }

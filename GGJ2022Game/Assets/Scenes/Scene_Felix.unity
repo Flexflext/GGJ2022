@@ -1134,8 +1134,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe62e6b908c97e4db557f686be79a0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xLerpZone: {x: -3, y: 3}
   minMaxZPos: {x: 3.3, y: 0}
-  maxXDistance: 10
+  maxXDistance: 15
   frontPlayer: {fileID: 1286043727}
   backPlayer: {fileID: 1225601427}
 --- !u!4 &1732971114
