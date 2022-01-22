@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlatformTrap : PlayerTrap
 {
-    [SerializeField]
-    private bool isActivated;
 
     [SerializeField]
     private PlatformTrap counterPart;
@@ -25,6 +23,13 @@ public class PlatformTrap : PlayerTrap
 
     private void Start()
     {
+        float rndIdx = Random.Range(0, 1);
+
+        if (rndIdx > 0.5f)
+            SetActiveStart();
+        else
+            counterPart.SetActiveStart();
+
         movePosLeft = transform.position;
 
         movePosRight = new Vector3(transform.position.x + moveOffset, transform.position.y, transform.position.z);
@@ -42,7 +47,7 @@ public class PlatformTrap : PlayerTrap
         }
     }
 
-    protected override void Activate()
+    public void Activate()
     {
         if (!isMoving)
             StartCoroutine(C_MovePlatform());
@@ -127,4 +132,6 @@ public class PlatformTrap : PlayerTrap
     }
 
     public bool IsMoving() => isMoving;
+
+    public void SetActiveStart() => isActivated = true;
 }

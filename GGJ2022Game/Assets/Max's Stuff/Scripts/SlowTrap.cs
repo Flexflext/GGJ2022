@@ -7,30 +7,66 @@ public class SlowTrap : PlayerTrap
     [SerializeField]
     private float slowFactor;
 
-    private void OnCollisionEnter(Collision collision)
+    [SerializeField]
+    private SlowTrap counterPart;
+
+    [SerializeField]
+    private GameObject activeEffect;
+
+    PlayerController playerToSlow;
+
+    [SerializeField]
+    private Collider triggerCollider;
+
+    private bool isActive;
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.collider.gameObject.layer == playerLayer)
+        if (isActive && other.gameObject.layer == playerLayer)
         {
-            ActivateTrap();
+            if(playerToSlow == null)
+                playerToSlow = other.gameObject.GetComponent<PlayerController>();
+
+            if(playerToSlow != null)
+                ActivateSlow();
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    public void Activate()
     {
-        if (collision.collider.gameObject.layer == playerLayer)
-        {
-            DeactivateTrap();
-        }
-    }
+        if (isActive)
+            return;
 
-    private void ActivateTrap()
-    {
-        //player.GetSlowed(slowFactor);
+        isActive = true;
+        activeEffect.SetActive(true);
+        triggerCollider.enabled = true;
+        Debug.Log("DDDDDDDDDDDDDDDDDDDDDDDDDDDD");
+        counterPart.Activate();
     }
-
 
     private void DeactivateTrap()
     {
-        //player.GetSlowed(1);
+        isActive = false;
+        activeEffect.SetActive(false);
+        triggerCollider.enabled = false;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == playerLayer)
+        {
+            DeactivateSlow();
+        }
+    }
+
+    private void ActivateSlow()
+    {
+        playerToSlow.RecieveSlow(slowFactor);
+    }
+
+
+    private void DeactivateSlow()
+    {
+        playerToSlow.RecieveSlow(1);
     }
 }

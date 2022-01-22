@@ -20,11 +20,10 @@ public class TrapContainer : MonoBehaviour
 
     private PlayerTrap currentTrap;
 
-    [SerializeField]
-    private int playerLayer;
+    private PlayerTrap previousTrap;
 
     [SerializeField]
-    private GameObject player;
+    private int playerLayer;
 
     private void Awake()
     {
@@ -34,21 +33,39 @@ public class TrapContainer : MonoBehaviour
             Destroy(this.gameObject);
     }
 
+    private void Start()
+    {
+        currentTrap = allTraps[0];
+    }
 
     public void SetNextTrapAndActivate(float _xPos)
     {
+        float lowestD = 100;
+
         for (int i = 0; i < allTraps.Length; i++)
         {
-            if (_xPos < allTraps[i].transform.position.x)
+            float distance = allTraps[i].transform.position.x - _xPos;
+
+            if (distance < lowestD && allTraps[i].transform.position.x > _xPos)
             {
                 currentTrap = allTraps[i];
+                lowestD = distance;
             }
         }
 
         currentTrap.TriggerTrap();
+
+        Debug.Log(_xPos);
     }
 
     public int PlayerLayer() => playerLayer;
-    public GameObject Player() => player;
 
+    private void OnDrawGizmos()
+    {
+        if (currentTrap == null)
+            return;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(currentTrap.transform.position, 0.5f);
+    }
 }

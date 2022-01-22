@@ -7,17 +7,49 @@ public class PlayerTrap : MonoBehaviour
     [SerializeField]
     protected ETrapType type;
 
-    protected int playerLayer;
+    protected bool isActivated;
 
-    protected GameObject player;
+    WallTrap wallType;
+    PlatformTrap platformType;
+    SlowTrap slowType;
+
+    protected int playerLayer;
 
     private void Start()
     {
         playerLayer = TrapContainer.Instance.PlayerLayer();
 
-        player = TrapContainer.Instance.Player();
+        switch (type)
+        {
+            case ETrapType.platform:
+                platformType = GetComponent<PlatformTrap>();
+                break;
+            case ETrapType.wall:
+                wallType = GetComponent<WallTrap>();
+                break;
+            case ETrapType.slow:
+                slowType = GetComponent<SlowTrap>();
+                break;
+            default:
+                break;
+        }
     }
 
-    public void TriggerTrap() { Activate(); }
-    protected virtual void Activate() { Debug.Log("Trap Was Activated"); }
+    public void TriggerTrap() 
+    {
+        switch (type)
+        {
+            case ETrapType.platform:
+                platformType.Activate();
+                break;
+            case ETrapType.wall:
+                wallType.Activate();
+                break;
+            case ETrapType.slow:
+                slowType.Activate();
+                break;
+            default:
+                break;
+        }
+    }
 }

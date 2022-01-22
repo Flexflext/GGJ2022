@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class WallTrap : PlayerTrap
 {
-    [SerializeField]
-    private bool isActivated;
 
     [SerializeField]
     private WallTrap counterPart;
@@ -25,6 +23,13 @@ public class WallTrap : PlayerTrap
 
     private void Start()
     {
+        float rndIdx = Random.Range(0, 1);
+
+        if (rndIdx > 0.5f)
+            SetActiveStart();
+        else
+            counterPart.SetActiveStart();
+
         movePosDown = transform.position;
 
         movePosUp = new Vector3(transform.position.x, transform.position.y + moveOffset, transform.position.z);
@@ -42,7 +47,7 @@ public class WallTrap : PlayerTrap
         }
     }
 
-    protected override void Activate()
+    public void Activate()
     {
         if (!isMoving)
             StartCoroutine(C_MovePlatform());
@@ -78,7 +83,6 @@ public class WallTrap : PlayerTrap
                 if(!counterPart.IsMoving())
                     counterPart.StartCoroutine(counterPart.C_LetPlatformBeMoved());
 
-                Debug.Log("Up" + gameObject.name);
                 yield return null;
             }
 
@@ -100,7 +104,6 @@ public class WallTrap : PlayerTrap
             {
                 this.transform.position = Vector3.MoveTowards(transform.position, movePosDown, movementSpeed * Time.deltaTime);
 
-                Debug.Log("Down");
                 yield return null;
             }
 
@@ -114,7 +117,6 @@ public class WallTrap : PlayerTrap
             {
                 this.transform.position = Vector3.MoveTowards(transform.position, movePosUp, movementSpeed * Time.deltaTime);
 
-                Debug.Log("Up");
                 yield return null;
             }
 
@@ -127,4 +129,6 @@ public class WallTrap : PlayerTrap
     }
 
     public bool IsMoving() => isMoving;
+
+    public void SetActiveStart() => isActivated = true;
 }
