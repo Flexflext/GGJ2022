@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 
-public enum EPlayer
+
+ public enum EPlayer
 {
     First,
     Second
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private VisualEffect jump;
     [SerializeField] private VisualEffect fall;
     [SerializeField] private VisualEffect walk;
+    [SerializeField] private VisualEffect dieVFX;
 
 
     [Header("Keys")]
@@ -112,7 +114,7 @@ public class PlayerController : MonoBehaviour
 
     private void GetInput()
     {
-        if (Time.timeScale <= 0)
+        if (Time.timeScale < 1)
         {
             return;
         }
@@ -218,6 +220,8 @@ public class PlayerController : MonoBehaviour
     private void Die()
     {
         //Tell Race Manager
+        dieVFX.Play();
+        rb.velocity = Vector3.zero;
         GameManager.Instance.SetPlayerScore(player);
     }
 
