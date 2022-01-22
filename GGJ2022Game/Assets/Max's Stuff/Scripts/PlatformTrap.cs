@@ -37,12 +37,12 @@ public class PlatformTrap : PlayerTrap
     {
         if (debugBool)
         {
-            ActivatedTrap();
+            Activate();
             debugBool = false;
         }
     }
 
-    public void ActivatedTrap()
+    protected override void Activate()
     {
         if (!isMoving)
             StartCoroutine(C_MovePlatform());

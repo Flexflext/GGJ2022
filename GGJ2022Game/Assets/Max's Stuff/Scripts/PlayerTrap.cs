@@ -17,4 +17,7 @@ public class PlayerTrap : MonoBehaviour
 
         player = TrapContainer.Instance.Player();
     }
+
+    public void TriggerTrap() { Activate(); }
+    protected virtual void Activate() { Debug.Log("Trap Was Activated"); }
 }

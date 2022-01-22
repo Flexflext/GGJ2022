@@ -34,9 +34,18 @@ public class TrapContainer : MonoBehaviour
             Destroy(this.gameObject);
     }
 
-    public void ChangeNextTrap(float _xPos)
+
+    public void SetNextTrapAndActivate(float _xPos)
     {
-        
+        for (int i = 0; i < allTraps.Length; i++)
+        {
+            if (_xPos < allTraps[i].transform.position.x)
+            {
+                currentTrap = allTraps[i];
+            }
+        }
+
+        currentTrap.TriggerTrap();
     }
 
     public int PlayerLayer() => playerLayer;
