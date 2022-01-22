@@ -18,11 +18,9 @@ public class SlowTrap : PlayerTrap
     [SerializeField]
     private Collider triggerCollider;
 
-    private bool isActive;
-
     private void OnTriggerEnter(Collider other)
     {
-        if (isActive && other.gameObject.layer == playerLayer)
+        if (isActivated && other.gameObject.layer == playerLayer)
         {
             if(playerToSlow == null)
                 playerToSlow = other.gameObject.GetComponent<PlayerController>();
@@ -34,19 +32,31 @@ public class SlowTrap : PlayerTrap
 
     public void Activate()
     {
-        if (isActive)
-            return;
-
-        isActive = true;
-        activeEffect.SetActive(true);
-        triggerCollider.enabled = true;
-        Debug.Log("DDDDDDDDDDDDDDDDDDDDDDDDDDDD");
-        counterPart.Activate();
+        if (!counterPart.IsActivated())
+        {
+            counterPart.GetActivated();
+            DeactivateTrap();
+        }
+        else
+        {
+            counterPart.DeactivateTrap();
+            GetActivated();
+        }
     }
 
-    private void DeactivateTrap()
+    public void GetActivated()
     {
-        isActive = false;
+        if (isActivated)
+            return;
+
+        isActivated = true;
+        activeEffect.SetActive(true);
+        triggerCollider.enabled = true;
+    }
+
+    public void DeactivateTrap()
+    {
+        isActivated = false;
         activeEffect.SetActive(false);
         triggerCollider.enabled = false;
     }
@@ -69,4 +79,6 @@ public class SlowTrap : PlayerTrap
     {
         playerToSlow.RecieveSlow(1);
     }
+
+    public bool IsActivated() => isActivated;
 }

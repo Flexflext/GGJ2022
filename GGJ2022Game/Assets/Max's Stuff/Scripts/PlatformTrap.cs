@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlatformTrap : PlayerTrap
 {
-
     [SerializeField]
     private PlatformTrap counterPart;
 
@@ -18,6 +17,8 @@ public class PlatformTrap : PlayerTrap
     private Vector3 movePosLeft;
 
     private bool isMoving;
+
+    private PlayerController playerToParent;
 
     public bool debugBool;
 
@@ -36,6 +37,9 @@ public class PlatformTrap : PlayerTrap
 
         if (isActivated)
             this.transform.position = movePosRight;
+
+        if(isActivated)
+            StartCoroutine(C_MovePlatform());
     }
 
     private void Update()
@@ -134,4 +138,31 @@ public class PlatformTrap : PlayerTrap
     public bool IsMoving() => isMoving;
 
     public void SetActiveStart() => isActivated = true;
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == playerLayer)
+        {
+            if (playerToParent == null)
+                playerToParent = collision.gameObject.GetComponent<PlayerController>();
+
+            if (playerToParent != null)
+                playerToParent.transform.SetParent(this.transform);
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if(playerToParent != null)
+        {
+            playerToParent.transform.parent = null;
+            playerToParent = null;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(movePosRight, 0.5f);
+    }
 }

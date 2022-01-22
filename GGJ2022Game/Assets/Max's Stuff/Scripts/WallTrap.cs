@@ -36,6 +36,9 @@ public class WallTrap : PlayerTrap
 
         if (isActivated)
             this.transform.position = movePosUp;
+
+        if (isActivated)
+            StartCoroutine(C_MovePlatform());
     }
 
     private void Update()
@@ -131,4 +134,10 @@ public class WallTrap : PlayerTrap
     public bool IsMoving() => isMoving;
 
     public void SetActiveStart() => isActivated = true;
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(movePosUp, 0.5f);
+    }
 }
