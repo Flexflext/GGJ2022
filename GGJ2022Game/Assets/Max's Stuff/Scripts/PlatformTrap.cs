@@ -168,11 +168,4 @@ public class PlatformTrap : PlayerTrap
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        movePosRight = new Vector3(transform.position.x + moveOffset, transform.position.y, transform.position.z);
-
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(movePosRight, 0.5f);
-    }
 }

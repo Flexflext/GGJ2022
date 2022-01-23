@@ -260,7 +260,6 @@ GameObject:
   - component: {fileID: 3989559760910578809}
   - component: {fileID: 3989559760910578808}
   - component: {fileID: 3989559760910578811}
-  - component: {fileID: 1491374320005022089}
   m_Layer: 7
   m_Name: SlowTrap
   m_TagString: Untagged
@@ -314,7 +313,6 @@ MonoBehaviour:
   wallType: {fileID: 0}
   platformType: {fileID: 0}
   slowType: {fileID: 3989559760910578811}
-  audioManager: {fileID: 0}
 --- !u!114 &3989559760910578811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,31 +329,10 @@ MonoBehaviour:
   wallType: {fileID: 0}
   platformType: {fileID: 0}
   slowType: {fileID: 3989559760910578811}
-  audioManager: {fileID: 1491374320005022089}
   slowFactor: 0.5
   counterPart: {fileID: 3989559761897773979}
   activeEffect: {fileID: 5939140866226636566}
   triggerCollider: {fileID: 3989559760910578809}
---- !u!114 &1491374320005022089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3989559760910578813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 502727ed155aa6740b2590a46b9551ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allSounds:
-  - SoundType: 10
-    Volume: 1
-    Pitch: 1
-    Loop: 1
-    SourceType: 0
-    StaticSound: {fileID: 8300000, guid: 2c5cf05471ec5174f8798c59a7849e9d, type: 3}
-    RandomSounds: []
 --- !u!1 &3989559761770522591
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +377,6 @@ GameObject:
   - component: {fileID: 3989559761897773977}
   - component: {fileID: 3989559761897773976}
   - component: {fileID: 3989559761897773979}
-  - component: {fileID: 5500606604927831080}
   m_Layer: 10
   m_Name: SlowTrap
   m_TagString: Untagged
@@ -454,7 +430,6 @@ MonoBehaviour:
   wallType: {fileID: 0}
   platformType: {fileID: 0}
   slowType: {fileID: 3989559760910578811}
-  audioManager: {fileID: 0}
 --- !u!114 &3989559761897773979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,31 +446,10 @@ MonoBehaviour:
   wallType: {fileID: 0}
   platformType: {fileID: 0}
   slowType: {fileID: 3989559761897773979}
-  audioManager: {fileID: 5500606604927831080}
   slowFactor: 0.5
   counterPart: {fileID: 3989559760910578811}
   activeEffect: {fileID: 9151264227824293318}
   triggerCollider: {fileID: 3989559761897773977}
---- !u!114 &5500606604927831080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3989559761897773981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 502727ed155aa6740b2590a46b9551ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allSounds:
-  - SoundType: 10
-    Volume: 1
-    Pitch: 1
-    Loop: 1
-    SourceType: 0
-    StaticSound: {fileID: 8300000, guid: 2c5cf05471ec5174f8798c59a7849e9d, type: 3}
-    RandomSounds: []
 --- !u!1 &9003430534192902898
 GameObject:
   m_ObjectHideFlags: 0

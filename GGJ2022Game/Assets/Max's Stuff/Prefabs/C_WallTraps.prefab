@@ -209,7 +209,6 @@ MonoBehaviour:
   wallType: {fileID: 2200219156294763186}
   platformType: {fileID: 0}
   slowType: {fileID: 0}
-  audioManager: {fileID: 0}
 --- !u!114 &7599270128368883769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,32 +225,11 @@ MonoBehaviour:
   wallType: {fileID: 7599270128368883769}
   platformType: {fileID: 0}
   slowType: {fileID: 0}
-  audioManager: {fileID: 2462457945687468496}
   counterPart: {fileID: 2200219156294763186}
   movementSpeed: 8
   moveOffset: 3
   WallTrapPivot: {fileID: 5292724842596017654}
   debugBool: 0
---- !u!114 &2462457945687468496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809607007180707184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 502727ed155aa6740b2590a46b9551ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allSounds:
-  - SoundType: 8
-    Volume: 1
-    Pitch: 1
-    Loop: 0
-    SourceType: 0
-    StaticSound: {fileID: 8300000, guid: 2e1004b4392f269439d8312e65498f84, type: 3}
-    RandomSounds: []
 --- !u!1001 &1068823084191960591
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -545,7 +523,6 @@ MonoBehaviour:
   wallType: {fileID: 2200219156294763186}
   platformType: {fileID: 0}
   slowType: {fileID: 0}
-  audioManager: {fileID: 0}
   counterPart: {fileID: 7599270128368883769}
   movementSpeed: 8
   moveOffset: 3
@@ -567,27 +544,6 @@ MonoBehaviour:
   wallType: {fileID: 7599270128368883769}
   platformType: {fileID: 0}
   slowType: {fileID: 0}
-  audioManager: {fileID: 3835896776155613843}
---- !u!114 &3835896776155613843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3767968059403553738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 502727ed155aa6740b2590a46b9551ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allSounds:
-  - SoundType: 8
-    Volume: 1
-    Pitch: 1
-    Loop: 0
-    SourceType: 0
-    StaticSound: {fileID: 8300000, guid: 2e1004b4392f269439d8312e65498f84, type: 3}
-    RandomSounds: []
 --- !u!1001 &8301012071597685006
 PrefabInstance:
   m_ObjectHideFlags: 0
