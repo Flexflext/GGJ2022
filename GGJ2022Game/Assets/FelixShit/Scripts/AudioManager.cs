@@ -18,6 +18,14 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
+        StartCoroutine(C_SoundDelay());
+    }
+
+    private IEnumerator C_SoundDelay()
+    {
+        yield return new WaitForSeconds(0.3f);
+
         GetComponent<PersonalSoundManager>().PlaySound(false, ESoundTypes.Walk);
     }
 
