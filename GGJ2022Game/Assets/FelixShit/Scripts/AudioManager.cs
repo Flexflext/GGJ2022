@@ -46,8 +46,8 @@ public class AudioManager : MonoBehaviour
 
     public void ChangeVolume(float _value)
     {
-        masterVolume = _value;
-        mainMixer.audioMixer.SetFloat("MasterVolume", Mathf.Log10(_value) * 20);
+        //masterVolume = _value;
+        //mainMixer.audioMixer.SetFloat("MasterVolume", Mathf.Log10(_value) * 20);
     }
 
 }

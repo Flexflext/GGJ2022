@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
             secondPlayerWon = 0;
 
 
-            StartCoroutine(LoadSceneAfterDelay(SceneManager.GetActiveScene().buildIndex));
+            StartCoroutine(LoadSceneAfterDelay(0));
         }
         else
         {
