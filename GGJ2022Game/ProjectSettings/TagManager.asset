@@ -8,16 +8,16 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PlayerUp
   - Water
   - UI
-  - Player
-  - Ground
+  - PlayerDown
+  - GroundUp
   - Death
   - Win
-  - 
-  - 
-  - 
+  - GroundDown
+  - Up
+  - Down
   - 
   - 
   - 

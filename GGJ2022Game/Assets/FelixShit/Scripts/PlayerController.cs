@@ -27,10 +27,12 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
 
     [Header("GroundCheck")]
+    [SerializeField] private float coyoteTime = 0.1f;
     [SerializeField] private float extraDownVelo; 
     [SerializeField] private float groundCheckRadius;
     [SerializeField] private Transform groundCheckPos;
     [SerializeField] private LayerMask groundLayer;
+    private float curCoyoteTime = 0.1f;
 
 
     [Header("Delays")]
@@ -54,12 +56,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private KeyCode trapKey;
 
     private Rigidbody rb;
+    private Animator animator;
 
     private bool canDie = true;
+    private bool wasMoveing;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponentInChildren<Animator>();
+
         maxMoveSpeed = moveSpeed;
         maxJumpSpeed = jumpSpeed;
         currentJumpCoolDown = doubleJumpCooldown;
@@ -157,6 +163,20 @@ public class PlayerController : MonoBehaviour
             
         }
 
+        if (currentMove.sqrMagnitude >= (0.1f * 0.1f))
+        {
+            if (!wasMoveing)
+            {
+                animator.Play("RunAnimFemale");
+                wasMoveing = true;
+            }
+        }
+        else
+        {
+            animator.Play("NadaAnimFemal");
+            wasMoveing = false;
+        }
+
     }
 
     private void FlipChar()
@@ -179,13 +199,24 @@ public class PlayerController : MonoBehaviour
                 fall.Play();
             }
 
+            curCoyoteTime = coyoteTime;
             return true;
         }
         else
         {
-            rb.velocity += Vector3.down * extraDownVelo * Time.deltaTime;
+            if (curCoyoteTime <= 0)
+            {
+                rb.velocity += Vector3.down * extraDownVelo * Time.deltaTime;
 
-            return false;
+                return false;
+            }
+            else
+            {
+                curCoyoteTime -= Time.deltaTime;
+
+                return true;
+            }
+            
         }
     }
 
