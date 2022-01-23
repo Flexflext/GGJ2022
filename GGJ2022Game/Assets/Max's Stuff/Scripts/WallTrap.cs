@@ -17,6 +17,9 @@ public class WallTrap : PlayerTrap
     private Vector3 movePosUp;
     private Vector3 movePosDown;
 
+    [SerializeField]
+    private GameObject WallTrapPivot;
+
     private bool isMoving;
 
     public bool debugBool;
@@ -30,12 +33,12 @@ public class WallTrap : PlayerTrap
         else
             counterPart.SetActiveStart();
 
-        movePosDown = transform.position;
+        movePosDown = WallTrapPivot.transform.position;
 
-        movePosUp = new Vector3(transform.position.x, transform.position.y + moveOffset, transform.position.z);
+        movePosUp = new Vector3(WallTrapPivot.transform.position.x, WallTrapPivot.transform.position.y + moveOffset, WallTrapPivot.transform.position.z);
 
         if (isActivated)
-            this.transform.position = movePosUp;
+            WallTrapPivot.transform.position = movePosUp;
 
         if (isActivated)
             StartCoroutine(C_MovePlatform());
@@ -62,9 +65,9 @@ public class WallTrap : PlayerTrap
 
         if (isActivated)
         {
-            while (transform.position.y > movePosDown.y)
+            while (WallTrapPivot.transform.position.y > movePosDown.y)
             {
-                this.transform.position = Vector3.MoveTowards(transform.position, movePosDown, movementSpeed * Time.deltaTime);
+                WallTrapPivot.transform.position = Vector3.MoveTowards(WallTrapPivot.transform.position, movePosDown, movementSpeed * Time.deltaTime);
 
                 if (!counterPart.IsMoving())
                     counterPart.StartCoroutine(counterPart.C_LetPlatformBeMoved());
@@ -79,12 +82,14 @@ public class WallTrap : PlayerTrap
         }
         else
         {
-            while (transform.position.y < movePosUp.y)
+            while (WallTrapPivot.transform.position.y < movePosUp.y)
             {
-                this.transform.position = Vector3.MoveTowards(transform.position, movePosUp, movementSpeed * Time.deltaTime);
+                WallTrapPivot.transform.position = Vector3.MoveTowards(WallTrapPivot.transform.position, movePosUp, movementSpeed * Time.deltaTime);
 
                 if(!counterPart.IsMoving())
                     counterPart.StartCoroutine(counterPart.C_LetPlatformBeMoved());
+
+                Debug.Log("Up" + gameObject.name);
 
                 yield return null;
             }
@@ -103,9 +108,10 @@ public class WallTrap : PlayerTrap
 
         if (isActivated)
         {
-            while (transform.position.y > movePosDown.y)
+            while (WallTrapPivot.transform.position.y > movePosDown.y)
             {
-                this.transform.position = Vector3.MoveTowards(transform.position, movePosDown, movementSpeed * Time.deltaTime);
+                WallTrapPivot.transform.position = Vector3.MoveTowards(WallTrapPivot.transform.position, movePosDown, movementSpeed * Time.deltaTime);
+                Debug.Log("Down" + gameObject.name);
 
                 yield return null;
             }
@@ -116,9 +122,10 @@ public class WallTrap : PlayerTrap
         }
         else
         {
-            while (transform.position.y < movePosUp.y)
+            while (WallTrapPivot.transform.position.y < movePosUp.y)
             {
-                this.transform.position = Vector3.MoveTowards(transform.position, movePosUp, movementSpeed * Time.deltaTime);
+                WallTrapPivot.transform.position = Vector3.MoveTowards(WallTrapPivot.transform.position, movePosUp, movementSpeed * Time.deltaTime);
+                Debug.Log("Up" + gameObject.name);
 
                 yield return null;
             }

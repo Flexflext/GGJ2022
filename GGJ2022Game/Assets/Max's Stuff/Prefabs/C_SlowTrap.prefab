@@ -312,7 +312,7 @@ MonoBehaviour:
   type: 2
   wallType: {fileID: 0}
   platformType: {fileID: 0}
-  slowType: {fileID: 0}
+  slowType: {fileID: 3989559760910578811}
 --- !u!114 &3989559760910578811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,7 +356,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3989559761770522591}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.21754599, y: 2.3856525, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -392,7 +392,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3989559761897773981}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -30.25, z: 0}
+  m_LocalPosition: {x: 0, y: -21.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6675093950733481787}
@@ -429,7 +429,7 @@ MonoBehaviour:
   type: 2
   wallType: {fileID: 0}
   platformType: {fileID: 0}
-  slowType: {fileID: 0}
+  slowType: {fileID: 3989559760910578811}
 --- !u!114 &3989559761897773979
 MonoBehaviour:
   m_ObjectHideFlags: 0

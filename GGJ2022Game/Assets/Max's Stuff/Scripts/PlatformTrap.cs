@@ -141,7 +141,7 @@ public class PlatformTrap : PlayerTrap
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == playerLayer)
+        if (collision.gameObject.layer == playerLayerFirst || collision.gameObject.layer == playerLayerSecond)
         {
             if (playerToParent == null)
                 playerToParent = collision.gameObject.GetComponent<PlayerController>();
@@ -162,6 +162,8 @@ public class PlatformTrap : PlayerTrap
 
     private void OnDrawGizmos()
     {
+        movePosRight = new Vector3(transform.position.x + moveOffset, transform.position.y, transform.position.z);
+
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(movePosRight, 0.5f);
     }

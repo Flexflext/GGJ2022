@@ -23,7 +23,9 @@ public class TrapContainer : MonoBehaviour
     private PlayerTrap previousTrap;
 
     [SerializeField]
-    private int playerLayer;
+    private int upperPlayerLayer;
+    [SerializeField]
+    private int lowerPlayerLayer;
 
     private void Awake()
     {
@@ -57,7 +59,8 @@ public class TrapContainer : MonoBehaviour
         return currentTrap.GetType();
     }
 
-    public int PlayerLayer() => playerLayer;
+    public int UpperPlayerLayer() => upperPlayerLayer;
+    public int LowerPlayerLayer() => lowerPlayerLayer;
 
     private void OnDrawGizmos()
     {
