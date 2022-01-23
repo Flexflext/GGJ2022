@@ -21,7 +21,7 @@ public class SlowTrap : PlayerTrap
 
     private void OnTriggerEnter(Collider other)
     {
-        if (isActivated && other.gameObject.layer == playerLayer)
+        if (other.gameObject.layer == playerLayerFirst || other.gameObject.layer == playerLayerSecond)
         {
             if(playerToSlow == null)
                 playerToSlow = other.gameObject.GetComponent<PlayerController>();
@@ -64,7 +64,7 @@ public class SlowTrap : PlayerTrap
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == playerLayer)
+        if (other.gameObject.layer == playerLayerFirst || other.gameObject.layer == playerLayerSecond)
         {
             DeactivateSlow();
         }

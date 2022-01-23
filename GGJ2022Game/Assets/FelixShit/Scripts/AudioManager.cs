@@ -13,10 +13,12 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioMixerGroup musicMixer;
 
     private float masterVolume;
+    
 
     private void Awake()
     {
         Instance = this;
+        GetComponent<PersonalSoundManager>().PlaySound(false, ESoundTypes.Walk);
     }
 
     public AudioMixerGroup GetMixerGroup(EAudioType _type)

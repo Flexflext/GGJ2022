@@ -16,11 +16,13 @@ public class PlayerTrap : MonoBehaviour
     [SerializeField]
     SlowTrap slowType;
 
-    protected int playerLayer;
+    protected int playerLayerFirst;
+    protected int playerLayerSecond;
 
     private void Start()
     {
-        playerLayer = TrapContainer.Instance.PlayerLayer();
+        playerLayerFirst = TrapContainer.Instance.UpperPlayerLayer();
+        playerLayerSecond = TrapContainer.Instance.UpperPlayerLayer();
 
 
 
