@@ -65,7 +65,7 @@ public class WallTrap : PlayerTrap
 
         if (isActivated)
         {
-            audioManager.PlaySound(false, ESoundTypes.WallMove);
+         //  audioManager.PlaySound(false, ESoundTypes.WallMove);
 
             while (WallTrapPivot.transform.position.y > movePosDown.y)
             {
@@ -84,7 +84,7 @@ public class WallTrap : PlayerTrap
         }
         else
         {
-            audioManager.PlaySound(false, ESoundTypes.WallMove);
+           // audioManager.PlaySound(false, ESoundTypes.WallMove);
 
             while (WallTrapPivot.transform.position.y < movePosUp.y)
             {
@@ -112,7 +112,7 @@ public class WallTrap : PlayerTrap
 
         if (isActivated)
         {
-            audioManager.PlaySound(false, ESoundTypes.WallMove);
+            //audioManager.PlaySound(false, ESoundTypes.WallMove);
 
             while (WallTrapPivot.transform.position.y > movePosDown.y)
             {
@@ -128,7 +128,7 @@ public class WallTrap : PlayerTrap
         }
         else
         {
-            audioManager.PlaySound(false, ESoundTypes.WallMove);
+         //   audioManager.PlaySound(false, ESoundTypes.WallMove);
 
             while (WallTrapPivot.transform.position.y < movePosUp.y)
             {

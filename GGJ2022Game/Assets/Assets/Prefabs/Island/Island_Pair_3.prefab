@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 3240137265026173910}
   - component: {fileID: 3240137265026173911}
   - component: {fileID: 3240137265026173908}
+  - component: {fileID: 441763158068652391}
   m_Layer: 0
   m_Name: Island_3_Lower
   m_TagString: Untagged
@@ -91,7 +92,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3edbb42feaf68a545a2c2c97c5ad96af, type: 2}
+  - {fileID: 2100000, guid: f8064e93351bdf749ae7ce2826376f01, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -113,6 +114,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &441763158068652391
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3240137265026173909}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 726359421387579630, guid: 2f922353af7533645924c17e834226f1, type: 3}
 --- !u!1 &4965414553850818552
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,6 +139,7 @@ GameObject:
   - component: {fileID: 5738538746826290498}
   - component: {fileID: 8650492408022858471}
   - component: {fileID: 6910859710660513325}
+  - component: {fileID: 6850317225609693530}
   m_Layer: 0
   m_Name: Island_3_Upper
   m_TagString: Untagged
@@ -194,3 +210,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6850317225609693530
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4965414553850818552}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 726359421387579630, guid: 2f922353af7533645924c17e834226f1, type: 3}
