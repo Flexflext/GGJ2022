@@ -99,7 +99,22 @@ public class PlayerController : MonoBehaviour
 
     private void ChangeNextTrap()
     {
-        TrapContainer.Instance.SetNextTrapAndActivate(this.transform.position.x);
+        ETrapType type = TrapContainer.Instance.SetNextTrapAndActivate(this.transform.position.x);
+
+        switch (type)
+        {
+            case ETrapType.platform:
+                audioManager.PlaySound(false, ESoundTypes.Platform);
+                break;
+            case ETrapType.wall:
+                audioManager.PlaySound(false, ESoundTypes.Wall);
+                break;
+            case ETrapType.slow:
+                audioManager.PlaySound(false, ESoundTypes.Slow);
+                break;
+            default:
+                break;
+        }
 
         canChangeTrap = false;
         currentTrapCoolDown = 0;

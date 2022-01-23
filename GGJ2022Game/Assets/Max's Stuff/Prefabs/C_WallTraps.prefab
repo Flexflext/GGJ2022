@@ -144,6 +144,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  wallType: {fileID: 6268244655589531445}
+  platformType: {fileID: 0}
+  slowType: {fileID: 0}
   counterPart: {fileID: 2379025457920607678}
   movementSpeed: 8
   moveOffset: 3
@@ -161,6 +164,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  wallType: {fileID: 2379025457920607678}
+  platformType: {fileID: 0}
+  slowType: {fileID: 0}
 --- !u!1001 &4271354837951669311
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -432,19 +438,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 777049649456579994, guid: 2de7ac350e4312c4ca5df71eb362e6a4, type: 3}
---- !u!114 &8097742089625848795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4848606239178770679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22c6a8ddd1168984d864d7fd13339cc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 1
 --- !u!114 &2379025457920607678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,10 +451,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  wallType: {fileID: 2379025457920607678}
+  platformType: {fileID: 0}
+  slowType: {fileID: 0}
   counterPart: {fileID: 6268244655589531445}
   movementSpeed: 8
   moveOffset: 3
   debugBool: 0
+--- !u!114 &8097742089625848795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4848606239178770679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c6a8ddd1168984d864d7fd13339cc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  wallType: {fileID: 6268244655589531445}
+  platformType: {fileID: 0}
+  slowType: {fileID: 0}
 --- !u!1001 &5089278725152691080
 PrefabInstance:
   m_ObjectHideFlags: 0

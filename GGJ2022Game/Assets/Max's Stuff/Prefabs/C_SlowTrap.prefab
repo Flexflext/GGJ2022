@@ -310,6 +310,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
+  wallType: {fileID: 0}
+  platformType: {fileID: 0}
+  slowType: {fileID: 0}
 --- !u!114 &3989559760910578811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,6 +326,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
+  wallType: {fileID: 0}
+  platformType: {fileID: 0}
+  slowType: {fileID: 3989559760910578811}
   slowFactor: 0.5
   counterPart: {fileID: 3989559761897773979}
   activeEffect: {fileID: 5939140866226636566}
@@ -421,6 +427,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
+  wallType: {fileID: 0}
+  platformType: {fileID: 0}
+  slowType: {fileID: 0}
 --- !u!114 &3989559761897773979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,6 +443,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
+  wallType: {fileID: 0}
+  platformType: {fileID: 0}
+  slowType: {fileID: 3989559761897773979}
   slowFactor: 0.5
   counterPart: {fileID: 3989559760910578811}
   activeEffect: {fileID: 9151264227824293318}

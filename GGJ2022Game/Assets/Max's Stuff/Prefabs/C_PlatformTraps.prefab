@@ -131,6 +131,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  wallType: {fileID: 0}
+  platformType: {fileID: 0}
+  slowType: {fileID: 0}
 --- !u!114 &4250345235099407292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +147,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  wallType: {fileID: 0}
+  platformType: {fileID: 4250345235099407292}
+  slowType: {fileID: 0}
   counterPart: {fileID: 0}
   movementSpeed: 10
   moveOffset: 3
@@ -260,6 +266,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  wallType: {fileID: 0}
+  platformType: {fileID: 5699105959629774894}
+  slowType: {fileID: 0}
 --- !u!114 &5699105959629774894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,6 +282,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  wallType: {fileID: 0}
+  platformType: {fileID: 0}
+  slowType: {fileID: 0}
   counterPart: {fileID: 0}
   movementSpeed: 10
   moveOffset: 3
