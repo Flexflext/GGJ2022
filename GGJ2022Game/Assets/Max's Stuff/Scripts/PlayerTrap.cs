@@ -35,7 +35,7 @@ public class PlayerTrap : MonoBehaviour
         }
     }
 
-    public ETrapType TriggerTrap() 
+    public void TriggerTrap() 
     {
         switch (type)
         {
@@ -51,7 +51,7 @@ public class PlayerTrap : MonoBehaviour
             default:
                 break;
         }
-
-        return type;
     }
+
+    public ETrapType GetType() => type;
 }
