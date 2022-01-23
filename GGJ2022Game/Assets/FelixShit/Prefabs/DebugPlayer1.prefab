@@ -495,7 +495,7 @@ MonoBehaviour:
   moveRightKey: 100
   moveLeftKey: 97
   jumpKey: 32
-  trapKey: 101
+  trapKey: 119
 --- !u!65 &731768564459641142
 BoxCollider:
   m_ObjectHideFlags: 0

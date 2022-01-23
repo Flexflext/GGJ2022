@@ -64,10 +64,10 @@ VisualEffect:
       m_Array: []
     m_Vector4f:
       m_Array:
-      - m_Value: {x: 1.1780362, y: 4.8859534, z: 0, w: 0}
+      - m_Value: {x: 1.6051682, y: 6.523132, z: 0, w: 0}
         m_Name: RandomColorA
         m_Overridden: 1
-      - m_Value: {x: 0.47249693, y: 0.50325716, z: 1.6475224, w: 0}
+      - m_Value: {x: 0.94883484, y: 1.0350925, z: 3.2950447, w: 0}
         m_Name: RandomColorB
         m_Overridden: 1
     m_Uint:
@@ -188,10 +188,10 @@ VisualEffect:
       m_Array: []
     m_Vector4f:
       m_Array:
-      - m_Value: {x: 0.91299456, y: 0.990566, z: 0, w: 0}
+      - m_Value: {x: 11.043138, y: 11.984314, z: 0, w: 0}
         m_Name: RandomColorA
         m_Overridden: 1
-      - m_Value: {x: 1.4374375, y: 0, z: 0, w: 0}
+      - m_Value: {x: 5.7497506, y: 0, z: 0, w: 0}
         m_Name: RandomColorB
         m_Overridden: 1
     m_Uint:
