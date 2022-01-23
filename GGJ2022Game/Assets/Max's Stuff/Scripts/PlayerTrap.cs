@@ -9,8 +9,11 @@ public class PlayerTrap : MonoBehaviour
 
     protected bool isActivated;
 
+    [SerializeField]
     WallTrap wallType;
+    [SerializeField]
     PlatformTrap platformType;
+    [SerializeField]
     SlowTrap slowType;
 
     protected int playerLayer;
@@ -18,6 +21,8 @@ public class PlayerTrap : MonoBehaviour
     private void Start()
     {
         playerLayer = TrapContainer.Instance.PlayerLayer();
+
+
 
         switch (type)
         {
