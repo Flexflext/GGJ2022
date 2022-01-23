@@ -482,6 +482,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
+  ui: {fileID: 0}
   doubleJumpCooldown: 2
   trapActivationCooldown: 2
   jump: {fileID: 731768564689426581}

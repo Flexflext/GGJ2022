@@ -62,15 +62,24 @@ public class PlayerController : MonoBehaviour
     private bool canDie = true;
     private bool wasMoveing;
 
+    private int runHash;
+    private int idleHash;
+
+    private PersonalSoundManager audioManager;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
+        audioManager = GetComponent<PersonalSoundManager>();
 
         maxMoveSpeed = moveSpeed;
         maxJumpSpeed = jumpSpeed;
         currentJumpCoolDown = doubleJumpCooldown;
         currentTrapCoolDown = trapActivationCooldown;
+
+        idleHash = Animator.StringToHash("Nada");
+        runHash = Animator.StringToHash("Run");
     }
 
     private void Update()
@@ -113,6 +122,8 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
+        audioManager.Stop(ESoundTypes.Walk);
+        audioManager.PlaySound(false, ESoundTypes.Jump);
         rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
         rb.AddForce(Vector3.up * jumpSpeed);
         jump.Play();
@@ -164,17 +175,27 @@ public class PlayerController : MonoBehaviour
             
         }
 
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            audioManager.PlaySound(false, ESoundTypes.Gulp);
+        }
+
         if (currentMove.sqrMagnitude >= (0.1f * 0.1f))
         {
             if (!wasMoveing)
             {
-                animator.Play("RunAnimFemale");
+                if (isGrounded)
+                {
+                    audioManager.PlaySound(false, ESoundTypes.Walk);
+                }   
+                animator.Play(runHash);
                 wasMoveing = true;
             }
         }
         else
         {
-            animator.Play("NadaAnimFemal");
+            audioManager.Stop(ESoundTypes.Walk);
+            animator.Play(idleHash);
             wasMoveing = false;
         }
 
@@ -269,6 +290,8 @@ public class PlayerController : MonoBehaviour
 
     private void Die()
     {
+        audioManager.PlaySound(false, ESoundTypes.Death);
+        audioManager.PlaySound(false, ESoundTypes.Splash);
         //Tell Race Manager
         dieVFX.Play();
         rb.velocity = Vector3.zero;

@@ -7,6 +7,12 @@ public enum ESoundTypes
 {
     Jump,
     Walk,
+    Slow,
+    Platform,
+    Wall,
+    Gulp,
+    Death,
+    Splash,
 }
 
 public enum EAudioType
@@ -30,17 +36,6 @@ public class PersonalSoundManager : MonoBehaviour
         public EAudioType SourceType;
         public AudioClip StaticSound;
         public AudioClip[] RandomSounds;
-
-        //public Sound()
-        //{
-        //    Volume = 1;
-        //    Pitch = 1;
-        //    SoundType = ESoundTypes.Jump;
-        //    Loop = false;
-        //    SourceType = EAudioType.SFX;
-        //    StaticSound = null;
-        //    RandomSounds = new AudioClip[0];
-        //}
     }
 
     struct SourceSound
@@ -51,7 +46,7 @@ public class PersonalSoundManager : MonoBehaviour
 
     [SerializeField] private Sound[] allSounds;
 
-    private SourceSound[] allSources;
+    [SerializeField] private SourceSound[] allSources;
 
     private int idx;
 
@@ -67,6 +62,7 @@ public class PersonalSoundManager : MonoBehaviour
         for (int i = 0; i < allSources.Length; i++)
         {
             FillSource(ref allSources[i], allSounds[i]);
+            Debug.Log("HUHU" + i);
         }
     }
 
@@ -100,6 +96,18 @@ public class PersonalSoundManager : MonoBehaviour
         else
         {
             allSources[idx].Source.PlayOneShot(allSounds[idx].StaticSound);
+        }
+    }
+
+    public void Stop(ESoundTypes _soundtype)
+    {
+        for (int i = 0; i < allSources.Length; i++)
+        {
+            if (_soundtype == allSources[i].SoundType)
+            {
+                allSources[i].Source.Stop();
+                break;
+            }
         }
     }
 }
