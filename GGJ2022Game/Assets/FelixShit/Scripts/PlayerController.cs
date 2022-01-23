@@ -64,6 +64,9 @@ public class PlayerController : MonoBehaviour
 
     private int runHash;
     private int idleHash;
+    private int jumpHash;
+
+    private bool jumping = false;
 
     private PersonalSoundManager audioManager;
 
@@ -78,17 +81,17 @@ public class PlayerController : MonoBehaviour
         currentJumpCoolDown = doubleJumpCooldown;
         currentTrapCoolDown = trapActivationCooldown;
 
-        idleHash = Animator.StringToHash("Nada");
-        runHash = Animator.StringToHash("Run");
+        runHash = Animator.StringToHash("Walking");
+        jumpHash = Animator.StringToHash("Jumping");
     }
 
     private void Update()
     {
         //Get Move Input
+        isGrounded = GroundCheck();
         GetInput();
 
         CheckCoolDowns();
-        isGrounded = GroundCheck();
     }
 
     private void FixedUpdate()
@@ -143,6 +146,8 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(Vector3.up * jumpSpeed);
         jump.Play();
         walk.Stop();
+        jumping = true;
+        animator.SetBool(jumpHash, true);
     }
 
     private void GetInput()
@@ -195,22 +200,25 @@ public class PlayerController : MonoBehaviour
             audioManager.PlaySound(false, ESoundTypes.Gulp);
         }
 
-        if (currentMove.sqrMagnitude >= (0.1f * 0.1f))
+        if (rb.velocity.sqrMagnitude >= (0.5f * 0.5f))
         {
             if (!wasMoveing)
             {
-                if (isGrounded)
+                if (isGrounded && !jumping)
                 {
                     audioManager.PlaySound(false, ESoundTypes.Walk);
+                    animator.SetBool(runHash, true);
                 }   
-                animator.Play(runHash);
+                
                 wasMoveing = true;
             }
         }
         else
         {
             audioManager.Stop(ESoundTypes.Walk);
-            animator.Play(idleHash);
+
+            animator.SetBool(runHash, false);
+
             wasMoveing = false;
         }
 
@@ -234,6 +242,12 @@ public class PlayerController : MonoBehaviour
             {
                 walk.Play();
                 fall.Play();
+
+                if (!jumping)
+                {
+                    animator.SetBool(jumpHash, false);
+                }
+                
             }
 
             curCoyoteTime = coyoteTime;
@@ -244,12 +258,14 @@ public class PlayerController : MonoBehaviour
             if (curCoyoteTime <= 0)
             {
                 rb.velocity += Vector3.down * extraDownVelo * Time.deltaTime;
+                jumping = false;
 
                 return false;
             }
             else
             {
                 curCoyoteTime -= Time.deltaTime;
+                jumping = true;
 
                 return true;
             }
