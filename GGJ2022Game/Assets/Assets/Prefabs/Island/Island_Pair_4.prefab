@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5770667256768688919}
   - component: {fileID: 7474388644198087858}
   - component: {fileID: 4638333331680987256}
-  - component: {fileID: 4598346644226740033}
+  - component: {fileID: 7201494179111373834}
   m_Layer: 0
   m_Name: Island_4_Upper
   m_TagString: Untagged
@@ -82,7 +82,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4598346644226740033
+--- !u!64 &7201494179111373834
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 7068194250998797199}
   - component: {fileID: 7068194250998797198}
   - component: {fileID: 7068194250998797185}
-  - component: {fileID: 1854018130561143862}
+  - component: {fileID: 7085385101018441362}
   m_Layer: 0
   m_Name: Island_4_Lower
   m_TagString: Untagged
@@ -188,7 +188,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3edbb42feaf68a545a2c2c97c5ad96af, type: 2}
+  - {fileID: 2100000, guid: f8064e93351bdf749ae7ce2826376f01, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -210,7 +210,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1854018130561143862
+--- !u!64 &7085385101018441362
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

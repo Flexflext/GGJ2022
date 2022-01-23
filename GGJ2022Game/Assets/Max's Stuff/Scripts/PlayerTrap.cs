@@ -19,8 +19,8 @@ public class PlayerTrap : MonoBehaviour
     protected int playerLayerFirst;
     protected int playerLayerSecond;
 
-    [SerializeField]
-    protected PersonalSoundManager audioManager;
+   // [SerializeField]
+   // protected PersonalSoundManager audioManager;
 
     private void Start()
     {
