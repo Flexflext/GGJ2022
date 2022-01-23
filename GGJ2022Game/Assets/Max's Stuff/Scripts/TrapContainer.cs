@@ -38,7 +38,7 @@ public class TrapContainer : MonoBehaviour
         currentTrap = allTraps[0];
     }
 
-    public void SetNextTrapAndActivate(float _xPos)
+    public ETrapType SetNextTrapAndActivate(float _xPos)
     {
         float lowestD = 100;
 
@@ -54,8 +54,7 @@ public class TrapContainer : MonoBehaviour
         }
 
         currentTrap.TriggerTrap();
-
-        Debug.Log(_xPos);
+        return currentTrap.GetType();
     }
 
     public int PlayerLayer() => playerLayer;
