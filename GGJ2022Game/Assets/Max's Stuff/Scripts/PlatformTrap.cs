@@ -65,6 +65,8 @@ public class PlatformTrap : PlayerTrap
         {
             while (transform.position.x > movePosLeft.x)
             {
+                audioManager.PlaySound(false, ESoundTypes.PlatformMove);
+
                 this.transform.position = Vector3.MoveTowards(transform.position, movePosLeft, movementSpeed * Time.deltaTime);
 
                 if (!counterPart.IsMoving())
@@ -82,6 +84,8 @@ public class PlatformTrap : PlayerTrap
         {
             while (transform.position.x < movePosRight.x)
             {
+                audioManager.PlaySound(false, ESoundTypes.PlatformMove);
+
                 this.transform.position = Vector3.MoveTowards(transform.position, movePosRight, movementSpeed * Time.deltaTime);
 
                 if (!counterPart.IsMoving())
@@ -107,6 +111,8 @@ public class PlatformTrap : PlayerTrap
         {
             while (transform.position.x > movePosLeft.x)
             {
+                audioManager.PlaySound(false, ESoundTypes.PlatformMove);
+
                 this.transform.position = Vector3.MoveTowards(transform.position, movePosLeft, movementSpeed * Time.deltaTime);
 
                 Debug.Log("Left");
@@ -121,6 +127,8 @@ public class PlatformTrap : PlayerTrap
         {
             while (transform.position.x < movePosRight.x)
             {
+                audioManager.PlaySound(false, ESoundTypes.PlatformMove);
+
                 this.transform.position = Vector3.MoveTowards(transform.position, movePosRight, movementSpeed * Time.deltaTime);
 
                 Debug.Log("Right");

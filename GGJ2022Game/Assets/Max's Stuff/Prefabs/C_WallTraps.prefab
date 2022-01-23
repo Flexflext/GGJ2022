@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8192231617342794070}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WallPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3686235181215263408}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WallPivot (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,27 +193,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 777049649456579994, guid: 2de7ac350e4312c4ca5df71eb362e6a4, type: 3}
---- !u!114 &7599270128368883769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809607007180707184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecca3fdd5b87b63408a546b5a148ec92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 1
-  wallType: {fileID: 7599270128368883769}
-  platformType: {fileID: 0}
-  slowType: {fileID: 0}
-  counterPart: {fileID: 2200219156294763186}
-  movementSpeed: 8
-  moveOffset: 3
-  WallTrapPivot: {fileID: 5292724842596017654}
-  debugBool: 0
 --- !u!114 &4041150951798789724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,6 +209,49 @@ MonoBehaviour:
   wallType: {fileID: 2200219156294763186}
   platformType: {fileID: 0}
   slowType: {fileID: 0}
+  audioManager: {fileID: 0}
+--- !u!114 &7599270128368883769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809607007180707184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecca3fdd5b87b63408a546b5a148ec92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  wallType: {fileID: 7599270128368883769}
+  platformType: {fileID: 0}
+  slowType: {fileID: 0}
+  audioManager: {fileID: 2462457945687468496}
+  counterPart: {fileID: 2200219156294763186}
+  movementSpeed: 8
+  moveOffset: 3
+  WallTrapPivot: {fileID: 5292724842596017654}
+  debugBool: 0
+--- !u!114 &2462457945687468496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809607007180707184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502727ed155aa6740b2590a46b9551ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allSounds:
+  - SoundType: 8
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    SourceType: 0
+    StaticSound: {fileID: 8300000, guid: 2e1004b4392f269439d8312e65498f84, type: 3}
+    RandomSounds: []
 --- !u!1001 &1068823084191960591
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -248,6 +270,10 @@ PrefabInstance:
     - target: {fileID: 8799118884758248605, guid: 579258af850712b48abd66581c4c36bb, type: 3}
       propertyPath: m_Name
       value: Trap_Indicator
+      objectReference: {fileID: 0}
+    - target: {fileID: 8799118884758248605, guid: 579258af850712b48abd66581c4c36bb, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8799118884758248606, guid: 579258af850712b48abd66581c4c36bb, type: 3}
       propertyPath: m_RootOrder
@@ -334,6 +360,10 @@ PrefabInstance:
     - target: {fileID: 8799118884758248605, guid: 579258af850712b48abd66581c4c36bb, type: 3}
       propertyPath: m_Name
       value: Trap_Indicator (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8799118884758248605, guid: 579258af850712b48abd66581c4c36bb, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8799118884758248606, guid: 579258af850712b48abd66581c4c36bb, type: 3}
       propertyPath: m_RootOrder
@@ -515,6 +545,7 @@ MonoBehaviour:
   wallType: {fileID: 2200219156294763186}
   platformType: {fileID: 0}
   slowType: {fileID: 0}
+  audioManager: {fileID: 0}
   counterPart: {fileID: 7599270128368883769}
   movementSpeed: 8
   moveOffset: 3
@@ -536,6 +567,27 @@ MonoBehaviour:
   wallType: {fileID: 7599270128368883769}
   platformType: {fileID: 0}
   slowType: {fileID: 0}
+  audioManager: {fileID: 3835896776155613843}
+--- !u!114 &3835896776155613843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3767968059403553738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502727ed155aa6740b2590a46b9551ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allSounds:
+  - SoundType: 8
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    SourceType: 0
+    StaticSound: {fileID: 8300000, guid: 2e1004b4392f269439d8312e65498f84, type: 3}
+    RandomSounds: []
 --- !u!1001 &8301012071597685006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -546,6 +598,10 @@ PrefabInstance:
     - target: {fileID: 2349674656103575903, guid: 7d2ac9dd01b6e6e4a8a7fcbc2f90209d, type: 3}
       propertyPath: m_Name
       value: Wall_1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2349674656103575903, guid: 7d2ac9dd01b6e6e4a8a7fcbc2f90209d, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3157137731289279461, guid: 7d2ac9dd01b6e6e4a8a7fcbc2f90209d, type: 3}
       propertyPath: m_RootOrder
@@ -633,6 +689,10 @@ PrefabInstance:
     - target: {fileID: 2349674656103575903, guid: 7d2ac9dd01b6e6e4a8a7fcbc2f90209d, type: 3}
       propertyPath: m_Name
       value: Wall_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2349674656103575903, guid: 7d2ac9dd01b6e6e4a8a7fcbc2f90209d, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3157137731289279461, guid: 7d2ac9dd01b6e6e4a8a7fcbc2f90209d, type: 3}
       propertyPath: m_RootOrder

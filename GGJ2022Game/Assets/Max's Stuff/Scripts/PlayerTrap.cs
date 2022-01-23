@@ -19,6 +19,9 @@ public class PlayerTrap : MonoBehaviour
     protected int playerLayerFirst;
     protected int playerLayerSecond;
 
+    [SerializeField]
+    protected PersonalSoundManager audioManager;
+
     private void Start()
     {
         playerLayerFirst = TrapContainer.Instance.UpperPlayerLayer();
