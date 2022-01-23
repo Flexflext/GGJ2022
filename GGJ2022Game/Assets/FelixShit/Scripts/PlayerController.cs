@@ -212,6 +212,11 @@ public class PlayerController : MonoBehaviour
                 
                 wasMoveing = true;
             }
+
+            if (isGrounded && !jumping)
+            {
+                animator.SetBool(runHash, true);
+            }
         }
         else
         {
@@ -255,6 +260,11 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            if (!canDoubleJump)
+            {
+                jumping = false;
+            }
+
             if (curCoyoteTime <= 0)
             {
                 rb.velocity += Vector3.down * extraDownVelo * Time.deltaTime;
