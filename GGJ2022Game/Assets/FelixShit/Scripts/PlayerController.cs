@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
 
 
     [Header("Delays")]
+    [SerializeField] private PlayerUI ui;
     [SerializeField] private float doubleJumpCooldown;
     [SerializeField] private float trapActivationCooldown;
     private float currentJumpCoolDown;
@@ -120,7 +121,7 @@ public class PlayerController : MonoBehaviour
 
     private void GetInput()
     {
-        if (Time.timeScale < 1)
+        if (Time.timeScale < 1 || animator == null)
         {
             return;
         }
@@ -225,11 +226,29 @@ public class PlayerController : MonoBehaviour
         if (!canDoubleJump)
         {
             CoolDown(ref canDoubleJump, ref currentJumpCoolDown, doubleJumpCooldown);
+
+            if (player == EPlayer.First)
+            {
+                ui.ChangeTimerOfDoubleJumpUp(currentJumpCoolDown, doubleJumpCooldown);
+            }
+            else
+            {
+                ui.ChangeTimerOfDoubleJumpDown(currentJumpCoolDown, doubleJumpCooldown);
+            }
         }
 
         if (!canChangeTrap)
         {
             CoolDown(ref canChangeTrap, ref currentTrapCoolDown, trapActivationCooldown);
+
+            if (player == EPlayer.First)
+            {
+                ui.ChangeTimerOfTrapUp(currentTrapCoolDown, trapActivationCooldown);
+            }
+            else
+            {
+                ui.ChangeTimerOfTrapDown(currentTrapCoolDown, trapActivationCooldown);
+            }
         }
 
     }
