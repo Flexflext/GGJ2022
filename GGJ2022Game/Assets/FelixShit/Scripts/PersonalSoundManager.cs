@@ -13,6 +13,9 @@ public enum ESoundTypes
     Gulp,
     Death,
     Splash,
+    WallMove,
+    PlatformMove,
+    FireActivate
 }
 
 public enum EAudioType

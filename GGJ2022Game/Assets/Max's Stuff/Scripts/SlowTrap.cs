@@ -50,6 +50,7 @@ public class SlowTrap : PlayerTrap
         if (isActivated)
             return;
 
+        audioManager.PlaySound(false, ESoundTypes.FireActivate);
         isActivated = true;
         activeEffect.Play();
         triggerCollider.enabled = true;
@@ -57,6 +58,7 @@ public class SlowTrap : PlayerTrap
 
     public void DeactivateTrap()
     {
+        audioManager.Stop(ESoundTypes.FireActivate);
         isActivated = false;
         activeEffect.Stop();
         triggerCollider.enabled = false;

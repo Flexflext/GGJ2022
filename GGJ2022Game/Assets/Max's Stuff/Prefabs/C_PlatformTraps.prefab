@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 2343169397182069564}
   - component: {fileID: 1156198461138954863}
   - component: {fileID: 753478304573897319}
-  m_Layer: 0
+  - component: {fileID: 5612224189855736886}
+  m_Layer: 7
   m_Name: Platform_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,6 +103,7 @@ MonoBehaviour:
   wallType: {fileID: 0}
   platformType: {fileID: 1156198461138954863}
   slowType: {fileID: 0}
+  audioManager: {fileID: 0}
 --- !u!114 &1156198461138954863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,6 +120,7 @@ MonoBehaviour:
   wallType: {fileID: 0}
   platformType: {fileID: 1156198461138954863}
   slowType: {fileID: 0}
+  audioManager: {fileID: 5612224189855736886}
   counterPart: {fileID: 7341057109470927357}
   movementSpeed: 10
   moveOffset: 5
@@ -135,6 +138,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0267663, y: 0.022942541, z: 0.008603453}
   m_Center: {x: -0.00067181746, y: -0.00070222793, z: 0.0009540308}
+--- !u!114 &5612224189855736886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120786306295155028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502727ed155aa6740b2590a46b9551ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allSounds:
+  - SoundType: 9
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    SourceType: 0
+    StaticSound: {fileID: 8300000, guid: 86d47ec21aa0eda45910eb98295df02e, type: 3}
+    RandomSounds: []
 --- !u!1 &2176199757176056656
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,7 +172,8 @@ GameObject:
   - component: {fileID: 613618175880264517}
   - component: {fileID: 7341057109470927357}
   - component: {fileID: 1585269117852398810}
-  m_Layer: 0
+  - component: {fileID: 1532920442975934608}
+  m_Layer: 10
   m_Name: Platform_1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,6 +261,7 @@ MonoBehaviour:
   wallType: {fileID: 0}
   platformType: {fileID: 7341057109470927357}
   slowType: {fileID: 0}
+  audioManager: {fileID: 0}
 --- !u!114 &7341057109470927357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,6 +278,7 @@ MonoBehaviour:
   wallType: {fileID: 0}
   platformType: {fileID: 7341057109470927357}
   slowType: {fileID: 0}
+  audioManager: {fileID: 1532920442975934608}
   counterPart: {fileID: 1156198461138954863}
   movementSpeed: 10
   moveOffset: 5
@@ -270,6 +296,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0267663, y: 0.022942541, z: 0.008603453}
   m_Center: {x: -0.00067181746, y: -0.00070222793, z: 0.0009540289}
+--- !u!114 &1532920442975934608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2176199757176056656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502727ed155aa6740b2590a46b9551ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allSounds:
+  - SoundType: 9
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    SourceType: 0
+    StaticSound: {fileID: 8300000, guid: 86d47ec21aa0eda45910eb98295df02e, type: 3}
+    RandomSounds: []
 --- !u!1 &7478893933187436853
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,6 +370,10 @@ PrefabInstance:
     - target: {fileID: 8799118884758248605, guid: 579258af850712b48abd66581c4c36bb, type: 3}
       propertyPath: m_Name
       value: Trap_Indicator
+      objectReference: {fileID: 0}
+    - target: {fileID: 8799118884758248605, guid: 579258af850712b48abd66581c4c36bb, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8799118884758248606, guid: 579258af850712b48abd66581c4c36bb, type: 3}
       propertyPath: m_RootOrder
@@ -414,6 +464,10 @@ PrefabInstance:
     - target: {fileID: 8799118884758248605, guid: 579258af850712b48abd66581c4c36bb, type: 3}
       propertyPath: m_Name
       value: Trap_Indicator (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8799118884758248605, guid: 579258af850712b48abd66581c4c36bb, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8799118884758248606, guid: 579258af850712b48abd66581c4c36bb, type: 3}
       propertyPath: m_RootOrder

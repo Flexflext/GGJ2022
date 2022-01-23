@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6675093950733481787}
   - component: {fileID: 9151264227824293318}
   - component: {fileID: 5732290291650062825}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fire (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 7745017979554668435}
   - component: {fileID: 5939140866226636566}
   - component: {fileID: 8673793336126779680}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,8 @@ GameObject:
   - component: {fileID: 3989559760910578809}
   - component: {fileID: 3989559760910578808}
   - component: {fileID: 3989559760910578811}
-  m_Layer: 0
+  - component: {fileID: 1491374320005022089}
+  m_Layer: 7
   m_Name: SlowTrap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,6 +314,7 @@ MonoBehaviour:
   wallType: {fileID: 0}
   platformType: {fileID: 0}
   slowType: {fileID: 3989559760910578811}
+  audioManager: {fileID: 0}
 --- !u!114 &3989559760910578811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,10 +331,31 @@ MonoBehaviour:
   wallType: {fileID: 0}
   platformType: {fileID: 0}
   slowType: {fileID: 3989559760910578811}
+  audioManager: {fileID: 1491374320005022089}
   slowFactor: 0.5
   counterPart: {fileID: 3989559761897773979}
   activeEffect: {fileID: 5939140866226636566}
   triggerCollider: {fileID: 3989559760910578809}
+--- !u!114 &1491374320005022089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3989559760910578813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502727ed155aa6740b2590a46b9551ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allSounds:
+  - SoundType: 10
+    Volume: 1
+    Pitch: 1
+    Loop: 1
+    SourceType: 0
+    StaticSound: {fileID: 8300000, guid: 2c5cf05471ec5174f8798c59a7849e9d, type: 3}
+    RandomSounds: []
 --- !u!1 &3989559761770522591
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,7 +400,8 @@ GameObject:
   - component: {fileID: 3989559761897773977}
   - component: {fileID: 3989559761897773976}
   - component: {fileID: 3989559761897773979}
-  m_Layer: 0
+  - component: {fileID: 5500606604927831080}
+  m_Layer: 10
   m_Name: SlowTrap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -430,6 +454,7 @@ MonoBehaviour:
   wallType: {fileID: 0}
   platformType: {fileID: 0}
   slowType: {fileID: 3989559760910578811}
+  audioManager: {fileID: 0}
 --- !u!114 &3989559761897773979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,10 +471,31 @@ MonoBehaviour:
   wallType: {fileID: 0}
   platformType: {fileID: 0}
   slowType: {fileID: 3989559761897773979}
+  audioManager: {fileID: 5500606604927831080}
   slowFactor: 0.5
   counterPart: {fileID: 3989559760910578811}
   activeEffect: {fileID: 9151264227824293318}
   triggerCollider: {fileID: 3989559761897773977}
+--- !u!114 &5500606604927831080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3989559761897773981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502727ed155aa6740b2590a46b9551ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allSounds:
+  - SoundType: 10
+    Volume: 1
+    Pitch: 1
+    Loop: 1
+    SourceType: 0
+    StaticSound: {fileID: 8300000, guid: 2c5cf05471ec5174f8798c59a7849e9d, type: 3}
+    RandomSounds: []
 --- !u!1 &9003430534192902898
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,7 +507,7 @@ GameObject:
   - component: {fileID: 9003430534192902893}
   - component: {fileID: 9003430534192902895}
   - component: {fileID: 9003430534192902892}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Trap_Indicator (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -585,6 +631,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap_Indicator
       objectReference: {fileID: 0}
+    - target: {fileID: 8799118884758248605, guid: 579258af850712b48abd66581c4c36bb, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8799118884758248606, guid: 579258af850712b48abd66581c4c36bb, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -650,6 +700,10 @@ PrefabInstance:
     - target: {fileID: 4695967505890847030, guid: 4642b2b5182a1c74380112410ab2ca79, type: 3}
       propertyPath: m_Name
       value: Skull
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695967505890847030, guid: 4642b2b5182a1c74380112410ab2ca79, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5359491623641609100, guid: 4642b2b5182a1c74380112410ab2ca79, type: 3}
       propertyPath: m_RootOrder
@@ -728,6 +782,10 @@ PrefabInstance:
     - target: {fileID: 4695967505890847030, guid: 4642b2b5182a1c74380112410ab2ca79, type: 3}
       propertyPath: m_Name
       value: Skull (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695967505890847030, guid: 4642b2b5182a1c74380112410ab2ca79, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5359491623641609100, guid: 4642b2b5182a1c74380112410ab2ca79, type: 3}
       propertyPath: m_RootOrder
