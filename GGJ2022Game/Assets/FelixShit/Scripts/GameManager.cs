@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     private int firstPlayerWon = 0;
     private int secondPlayerWon = 0;
+    private bool sceneChangePossible = true;
 
 
     private void Awake()
@@ -24,6 +25,11 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
+    private void Start()
+    {
+        SceneManager.activeSceneChanged += SceneChanged;
+    }
+
     public void ChangeScore(ref string _first, ref string _second)
     {
         _first = firstPlayerWon.ToString();
@@ -32,7 +38,12 @@ public class GameManager : MonoBehaviour
 
     public void SetPlayerScore(EPlayer _playertype, bool _win = false)
     {
-        
+        if (!sceneChangePossible)
+        {
+            return;
+        }
+
+
         if (_win)
         {
             switch (_playertype)
@@ -124,4 +135,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene(_scenetoload);
     }
+
+    private void SceneChanged(Scene _sceneold, Scene _scenenew)
+    {
+        sceneChangePossible = true;
+    }
+
+    
 }

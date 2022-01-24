@@ -11,15 +11,20 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioMixerGroup sfxMixer;
     [SerializeField] private AudioMixerGroup ambientMixer;
     [SerializeField] private AudioMixerGroup musicMixer;
-
-    private float masterVolume;
-    
+    private float volume;
 
     private void Awake()
     {
         Instance = this;
+        
+    }
 
+    private void Start()
+    {
         StartCoroutine(C_SoundDelay());
+
+        mainMixer.audioMixer.GetFloat("MasterVolume", out volume);
+        ChangeVolume(volume);
     }
 
     private IEnumerator C_SoundDelay()
@@ -46,8 +51,7 @@ public class AudioManager : MonoBehaviour
 
     public void ChangeVolume(float _value)
     {
-        //masterVolume = _value;
-        //mainMixer.audioMixer.SetFloat("MasterVolume", Mathf.Log10(_value) * 20);
+        mainMixer.audioMixer.SetFloat("MasterVolume", Mathf.Log10(_value) * 20);
     }
 
 }

@@ -1025,7 +1025,7 @@ GameObject:
   - component: {fileID: 245147072}
   - component: {fileID: 245147071}
   m_Layer: 8
-  m_Name: DeathzBounds
+  m_Name: DeathBounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10399,7 +10399,7 @@ GameObject:
   - component: {fileID: 1725664770}
   - component: {fileID: 1725664769}
   m_Layer: 8
-  m_Name: DeathzBounds (1)
+  m_Name: DeathBounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
